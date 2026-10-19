@@ -3,13 +3,20 @@ import { promo, trust } from "@/config/site";
 import { formatCountdown, remainingSeconds } from "@/lib/promotion-timer";
 
 function RunningCat() {
-  return <svg viewBox="0 0 40 28" className="pixel-cat h-7 w-10 shrink-0 text-paper" shapeRendering="crispEdges" aria-hidden="true">
+  return <svg viewBox="0 0 42 26" className="pixel-cat h-7 w-11 shrink-0 text-paper" shapeRendering="crispEdges" aria-hidden="true">
     <g fill="currentColor">
-      <path d="M2 8h4v6h6v-2h14V6h3V2h3v5h3V3h3v14h-4v3H14v-2H8v-2H4v-4H2Z" />
-      <path className="cat-leg-front" d="M28 18h4v5h5v3h-9Z" />
-      <path className="cat-leg-back" d="M13 18h4v5h-5v3H7v-3h6Z" />
+      <path d="M10 10h20v8H10Z" />
+      <path d="M30 5h10v9H30Z" />
+      <path d="M31 2h1v1h1v2h-3v-2h1z" />
+      <path d="M36 2h1v1h1v2h-3v-2h1z" />
+      <path d="M4 4h8v2H6v6h4v2H4Z" />
+      <path className="cat-leg-front" d="M25 18h3v4h2v2h-5Z" />
+      <path className="cat-leg-front-b" d="M29 18h3v4h2v2h-5Z" />
+      <path className="cat-leg-back" d="M11 18h3v4h2v2h-5Z" />
+      <path className="cat-leg-back-b" d="M15 18h3v4h2v2h-5Z" />
     </g>
-    <path fill="var(--ink)" d="M34 10h2v2h-2Z" />
+    <path fill="var(--ink)" d="M36 7h1v2h-1Z" />
+    <path fill="var(--ink)" d="M39 9h1v1h-1Z" />
   </svg>;
 }
 

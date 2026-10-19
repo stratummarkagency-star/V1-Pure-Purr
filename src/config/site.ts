@@ -35,12 +35,12 @@ export const bundle = {
   warrantyYears: 3,
   installments: { show: false, count: 4, provider: "Klarna / Shop Pay [REPLACE: enable only if active]" },
   items: [
-    { id: "box", name: "Pure Purr Self-Cleaning Litter Box", benefit: "The box that cleans itself.", value: 599, free: false },
+    { id: "box", name: "Pure Purr Self-Cleaning Litter Box", benefit: "The box that cleans itself. ", value: 599, free: false },
     { id: "stairs", name: "Purr Steps Cat Stairs", benefit: "Easy, comfortable access for kittens, seniors and small cats.", value: 69, free: true },
     { id: "bags", name: "Waste Bags, 5-pack", benefit: "Everything you need to start swapping, not scooping.", value: 29, free: true },
     { id: "litter", name: "Pure Purr Clumping Litter, 11 lb (5 kg)", benefit: "Fill up and go. Ready on day one.", value: 29, free: true },
-    { id: "fresh", name: "Soft Vanilla Freshener", benefit: "A soft vanilla scent for a fresh, welcoming home.", value: 25, free: true },
-    { id: "ebook", name: "The Purr Method: Cat Massage Therapy eBook", benefit: "A step-by-step guide to massaging your cat the right way. Calm, comfort, bonding.", value: 39, free: true },
+    { id: "fresh", name: "Soft Vanilla Freshener", benefit: "Proven by sciencie: they naturally love vainilla.", value: 25, free: true },
+    { id: "ebook", name: "The Purr Method: Cat Massage Therapy eBook", benefit: "A step-by-step guide to massaging your cat the right way.  So why not pamper them?", value: 29, free: true },
     { id: "mystery", name: "Mystery Gift Box", benefit: "A hand-picked surprise for you and your cat.", value: 39, valueLabel: "$39+", free: true, mystery: true },
   ] as BundleItem[],
   orderBump: { show: true, name: "Extra Waste Bags, 5-pack", price: 19 },
@@ -61,7 +61,7 @@ export const promo = {
 };
 
 export const trust = {
-  trustpilot: { show: true, rating: 4.9, reviews: "[REPLACE: N]", url: "[REPLACE: Trustpilot URL]", distribution: [88, 8, 2, 1, 1] },
+  trustpilot: { show: true, rating: 4.8, reviews: '["We don\'t say it, our family does."', url: "[REPLACE: Trustpilot URL]", distribution: [88, 8, 2, 1, 1] },
   warranty: { show: true, years: 3, text: "Repair or replacement" },
   trial: { show: true, days: 30 },
   protection: { show: true, text: "Refund or replacement if it arrives damaged or never arrives" },
@@ -74,7 +74,7 @@ export const trust = {
   awards: {
     show: true,
     items: [
-      { name: "CES Innovation Awards 2026", detail: "[REPLACE: exact category]" },
+      { name: "CES Innovation Awards", detail: "[REPLACE: exact category]" },
       { name: "Pet Innovation Awards", detail: "[REPLACE: exact name & category]" },
       { name: "Pet & Animal Tech Award", detail: "[REPLACE: exact name & category]" },
     ],

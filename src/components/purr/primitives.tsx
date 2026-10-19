@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ArrowRight, ShieldCheck, RotateCcw, Truck, PackageCheck, Star, Lock } from "lucide-react";
+import { ArrowRight, ShieldCheck, RotateCcw, Truck, PackageCheck, Star, Lock, Wind, BookOpen } from "lucide-react";
 import { abTest, trust } from "@/config/site";
 import { useCart } from "./cart";
 
@@ -55,7 +55,15 @@ export function CTA({ label, className = "", full = false }: { label?: string; c
 }
 
 export function Stars({ className = "size-4" }: { className?: string }) {
-  return <span className="inline-flex gap-0.5" aria-label="5 out of 5 stars">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className={`${className} fill-current`} strokeWidth={1.5} aria-hidden />)}</span>;
+  return <span className="inline-flex gap-0.5" aria-label="4.9 out of 5 stars">{Array.from({ length: 5 }).map((_, i) => i < 4 ? <Star key={i} className={`${className} fill-current`} strokeWidth={1.5} aria-hidden /> : <span key={i} className={`relative inline-block shrink-0 ${className}`} aria-hidden="true"><Star className="absolute inset-0 size-full" strokeWidth={1.5} /><Star className="star-fill-ninety absolute inset-0 size-full fill-current" strokeWidth={1.5} /></span>)}</span>;
+}
+
+export function GiftIcon({ id, className = "size-5" }: { id: string; className?: string }) {
+  if (id === "fresh") return <Wind className={className} strokeWidth={1.7} aria-hidden />;
+  if (id === "ebook") return <BookOpen className={className} strokeWidth={1.7} aria-hidden />;
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    {id === "stairs" ? <><path d="M3 21v-6h6V9h6V3h6v18Z" /><path d="M9 15v6M15 9v12" /></> : id === "bags" ? <><path d="m9 3 3 2 3-2-1 5c3 2 5 6 5 10 0 2-2 3-7 3s-7-1-7-3c0-4 2-8 5-10Z" /><path d="M9 8h6M10 13l-1 4M14 13l1 4" /></> : <><path d="m3 20 5-7 4 3 4-7 5 11Z" /><circle cx="7" cy="6" r=".6" /><circle cx="12" cy="3" r=".6" /><circle cx="18" cy="5" r=".6" /><path d="M8 18h.01M13 19h.01M17 15h.01" /></>}
+  </svg>;
 }
 
 export function Replace({ children = "REPLACE" }: { children?: ReactNode }) {
@@ -66,7 +74,7 @@ export function RiskStrip({ className = "" }: { className?: string }) {
   const items = [
     trust.trial.show && { icon: RotateCcw, t: `${trust.trial.days}-day risk-free` },
     trust.warranty.show && { icon: ShieldCheck, t: `${trust.warranty.years}-year warranty` },
-    trust.shipping.show && { icon: Truck, t: "Free shipping" },
+    trust.shipping.show && { icon: Truck, t: trust.shipping.label },
     trust.protection.show && { icon: PackageCheck, t: "Purchase protection" },
   ].filter(Boolean) as { icon: typeof Truck; t: string }[];
   return (

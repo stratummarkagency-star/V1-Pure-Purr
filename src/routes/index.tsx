@@ -6,7 +6,7 @@ import { bundle, totalValue } from "@/config/site";
 import { track } from "@/lib/track";
 
 const title = "Pure Purr Self-Cleaning Litter Box — Never Scoop Again";
-const description = `The self-cleaning litter box that locks away odor. Complete Bundle with 6 free gifts: $${bundle.price} ($${totalValue()} value). Free shipping, 30-day trial, 3-year warranty.`;
+const description = `The self-cleaning litter box that locks away odor. Complete Bundle with 6 free gifts: $${bundle.price} ($${totalValue()} value). Fast free shipping worldwide in 3–5 days, 30-day trial, 3-year warranty.`;
 
 export const Route = createFileRoute("/")({
   head: () => ({

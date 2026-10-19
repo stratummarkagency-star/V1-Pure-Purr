@@ -39,7 +39,7 @@ export const bundle = {
     { id: "stairs", name: "Purr Steps Cat Stairs", benefit: "Easy, comfortable access for kittens, seniors and small cats.", value: 69, free: true },
     { id: "bags", name: "Waste Bags, 5-pack", benefit: "Everything you need to start swapping, not scooping.", value: 29, free: true },
     { id: "litter", name: "Pure Purr Clumping Litter, 11 lb (5 kg)", benefit: "Fill up and go. Ready on day one.", value: 29, free: true },
-    { id: "fresh", name: "Soft Vanilla Freshener", benefit: "A cozy scent for a home that smells like home.", value: 25, free: true },
+    { id: "fresh", name: "Soft Vanilla Freshener", benefit: "A soft vanilla scent for a fresh, welcoming home.", value: 25, free: true },
     { id: "ebook", name: "The Purr Method: Cat Massage Therapy eBook", benefit: "A step-by-step guide to massaging your cat the right way. Calm, comfort, bonding.", value: 39, free: true },
     { id: "mystery", name: "Mystery Gift Box", benefit: "A hand-picked surprise for you and your cat.", value: 39, valueLabel: "$39+", free: true, mystery: true },
   ] as BundleItem[],
@@ -55,6 +55,7 @@ export const perDay = () => (bundle.price / (bundle.warrantyYears * 365)).toFixe
 export const installmentAmount = () => (bundle.price / bundle.installments.count).toFixed(2);
 
 export const promo = {
+  previewMinutes: 18,
   // Real deadline only. Leave show:false until you have a true date.
   giftsDeadline: { show: false, date: "[REPLACE: real date]" },
 };
@@ -64,9 +65,11 @@ export const trust = {
   warranty: { show: true, years: 3, text: "Repair or replacement" },
   trial: { show: true, days: 30 },
   protection: { show: true, text: "Refund or replacement if it arrives damaged or never arrives" },
-  shipping: { show: true, free: true, eta: "[REPLACE: __ business days]" },
+  shipping: { show: true, free: true, minDays: 3, maxDays: 5, worldwide: true, eta: "3–5 days worldwide", label: "Fast free shipping (3–5 days worldwide)" },
   support: { show: false, text: "Real humans. Replies within 24h." },
-  community: { show: true, count: 5000, label: "happy cat parents [REPLACE: real figure]" },
+  community: { show: true, count: 9000, label: "happy cat parents" },
+  heritage: { years: 10, text: "Over 10 years perfecting products for your beloved felines." },
+  giving: { percent: 4, text: "Thanks to your purchase, we donate 4% to homeless cats." },
   positioning: { show: false, text: "Fast becoming the litter box cats and their owners love most in the U.S." },
   awards: {
     show: true,

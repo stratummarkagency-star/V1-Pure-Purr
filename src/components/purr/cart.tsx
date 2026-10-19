@@ -71,7 +71,7 @@ function CartDrawer() {
               )}
             </div>
             <footer className="space-y-3 border-t px-6 py-5">
-              <div className="flex justify-between text-sm"><span>Shipping</span><span className="font-semibold">Free</span></div>
+              <div className="text-sm"><p className="font-semibold">{trust.shipping.label}</p></div>
               <div className="flex justify-between text-lg font-bold"><span>Subtotal</span><span>${subtotal}</span></div>
               <button onClick={() => { setCheckout(true); track("InitiateCheckout", { value: subtotal, currency: "USD" }); }} className="btn-cta w-full">Check out securely</button>
               <p className="flex items-center justify-center gap-2 text-xs text-muted-foreground"><ShieldCheck className="size-4" strokeWidth={1.5} />{trust.trial.days}-day risk-free · {trust.warranty.years}-year warranty</p>

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Check, X, Play, Volume2, ChevronDown, Award, Sparkles, ShieldCheck, Volume1, Smartphone, Cat, Wind, Clock, Frown, Eye, RotateCcw, PackageCheck, Gift, Image as ImageIcon, Video } from "lucide-react";
-import { bundle, totalValue, savings, savingsPct, perDay, installmentAmount, giftsValue, trust, reviews, ugcVideos, brand, abTest, promo } from "@/config/site";
-import { CTA, Reveal, RiskStrip, PaymentIcons, Stars, Replace, MysteryBox, useInView, useCountUp, useVariant } from "./primitives";
+import { bundle, totalValue, savings, savingsPct, perDay, installmentAmount, giftsValue, trust, reviews, ugcVideos, brand, abTest } from "@/config/site";
+import { CTA, Reveal, RiskStrip, PaymentIcons, Stars, Replace, MysteryBox, GiftIcon, useInView, useCountUp, useVariant } from "./primitives";
+import { Announcement } from "./announcement";
 import { useCart } from "./cart";
 import productImg from "@/assets/product.jpg";
 import lifestyleImg from "@/assets/lifestyle.jpg";
@@ -13,12 +14,7 @@ function Em({ children }: { children: string }) {
 
 /* S0 */
 export function TopBar() {
-  return (
-    <div className="on-dark flex min-h-9 items-center justify-center bg-ink px-4 text-center text-[13px] font-medium text-paper">
-      Free shipping · {trust.trial.days}-day risk-free trial · {trust.warranty.years}-year warranty
-      {promo.giftsDeadline.show && <span className="ml-2 hidden sm:inline">· 6 free gifts included on orders through {promo.giftsDeadline.date}</span>}
-    </div>
-  );
+  return <Announcement />;
 }
 
 /* Header */
@@ -88,7 +84,7 @@ export function Hero() {
       </div>
       <div className="absolute -left-2 top-6 rounded-2xl border bg-background/95 p-3 shadow-soft backdrop-blur md:-left-6">
         <p className="text-xs font-bold"><span className="rounded-full bg-accent px-2 py-0.5">6 FREE</span> gifts included</p>
-        <div className="mt-2 flex -space-x-2">{["Steps", "Bags", "Litter", "Scent", "eBook", "?"].map((g) => <span key={g} className="grid size-8 place-items-center rounded-full border-2 border-background bg-mint-soft text-[9px] font-bold">{g}</span>)}</div>
+        <div className="mt-2 flex gap-1">{bundle.items.filter((it) => it.free).map((it) => <span key={it.id} title={it.name} aria-label={it.name} className="grid size-8 place-items-center rounded-full border-2 border-background bg-ink text-mint text-[9px] font-bold">{it.mystery ? "?" : <GiftIcon id={it.id} className="size-4" />}</span>)}</div>
       </div>
     </div>
   );
@@ -276,7 +272,7 @@ export function Offer() {
               <div className="relative grid size-14 shrink-0 place-items-center overflow-hidden rounded-2xl bg-paper/10 md:size-16">
                 {it.id === "box" ? <img src={productImg} alt="" width={64} height={64} loading="lazy" className="size-full object-cover" /> : it.mystery ? (
                   <MysteryBox className="size-7 text-mint" strokeWidth={1.5} />
-                ) : <Gift className="size-6 text-paper/60" strokeWidth={1.5} />}
+                ) : <GiftIcon id={it.id} className="size-7 text-mint" />}
                 {it.id !== "box" && !it.mystery && <span className="absolute bottom-0.5 text-[8px] font-bold text-paper/50">{"\n"}</span>}
               </div>
               <div className="min-w-0 flex-1">
@@ -408,6 +404,10 @@ export function Recognition() {
         {trust.warranty.show && <Counter to={trust.warranty.years} suffix="-year" label="warranty" />}
         {trust.trial.show && <Counter to={trust.trial.days} suffix="-day" label="risk-free trial" />}
       </div>
+      <div className="mt-14 grid gap-8 border-t pt-10 md:grid-cols-2">
+        <div className="flex items-start gap-4"><Cat className="size-8 shrink-0" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.heritage.years}+ years</p><p className="mt-2 text-muted-foreground">{trust.heritage.text}</p></div></div>
+        <div className="flex items-start gap-4"><Gift className="size-8 shrink-0" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.giving.percent}% for homeless cats</p><p className="mt-2 text-muted-foreground">{trust.giving.text}</p></div></div>
+      </div>
     </section>
   );
 }
@@ -454,7 +454,7 @@ export function FAQ() {
     { q: "How loud is it?", a: "It runs quietly, so it won't bother you or your cat." },
     { q: "How do I empty it?", a: "Waste is sealed in a closed drawer. Just swap the bag now and then — the app tells you when it's full." },
     { q: "How do the free gifts work?", a: "They're added to your order automatically. No codes. Everything ships together." },
-    { q: "Shipping?", a: <>Free shipping in the U.S. Estimated delivery: {trust.shipping.eta}.</> },
+    { q: "Shipping?", a: <>{trust.shipping.label}. We ship worldwide.</> },
     { q: "Returns and warranty?", a: `You get a ${trust.trial.days}-day risk-free trial and a ${trust.warranty.years}-year warranty (${trust.warranty.text.toLowerCase()}).` },
     { q: "What's in the Mystery Box?", a: "A surprise! Hand-picked for you and your cat." },
   ];

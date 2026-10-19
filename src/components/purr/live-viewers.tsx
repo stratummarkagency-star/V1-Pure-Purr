@@ -8,9 +8,10 @@ export function nextViewers(current: number, min = 18, max = 47): number {
 
 export function LiveViewers() {
   const [viewers, setViewers] = useState(27);
-  const [added] = useState(() => 6 + Math.floor(Math.random() * 7));
+  const [added, setAdded] = useState(9);
 
   useEffect(() => {
+    setAdded(6 + Math.floor(Math.random() * 7));
     setViewers(20 + Math.floor(Math.random() * 15));
     const id = setInterval(() => setViewers((v) => nextViewers(v)), 6000);
     return () => clearInterval(id);
@@ -24,10 +25,10 @@ export function LiveViewers() {
             <span className="absolute inset-0 animate-ping rounded-full bg-mint opacity-70" />
             <span className="relative size-full animate-pulse rounded-full bg-mint shadow-[0_0_14px_var(--mint)]" />
           </span>
-          <span><span className="tabular-nums">{viewers}</span> people are viewing this</span>
+          <span><span translate="no" className="tabular-nums">{viewers}</span> people are viewing this</span>
         </p>
         <p className="text-lg font-bold text-muted-foreground sm:text-2xl md:text-3xl">
-          · <span className="tabular-nums">{added}</span> added to cart
+          · <span translate="no" className="tabular-nums">{added}</span> added to cart
         </p>
       </div>
       <p className="mt-2 text-center text-[10px] uppercase tracking-wider text-muted-foreground opacity-60">Preview demo numbers</p>

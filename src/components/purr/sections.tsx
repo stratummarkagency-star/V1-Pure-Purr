@@ -213,7 +213,7 @@ export function Benefits() {
 /* S6 */
 export function Comparison() {
   const rows: [string, string, string][] = [
-    ["Effort", "Scoop every day", "Swap a bag now and then"],
+    ["Effort", "Scoop every day", "Change the bag every 20 days"],
     ["Odor", "Open tray, smell spreads", "Sealed drawer, odor control"],
     ["Safety sensors", "—", "Pause if your cat comes near"],
     ["App alerts", "—", "Visits + full-drawer alerts"],
@@ -370,7 +370,7 @@ export function Reviews() {
               <Play className="size-8" strokeWidth={1.5} />
               <span className="absolute left-3 top-3"><Replace>REPLACE</Replace></span>
               <span className="absolute bottom-3 left-3 text-xs font-semibold">{v.handle}</span>
-              <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 text-[10px]"><Volume2 className="size-3" />Tap for sound</span>
+              <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 text-[10px]"><Volume2 className="size-3" />{""}</span>
             </div>
           ))}
         </div>

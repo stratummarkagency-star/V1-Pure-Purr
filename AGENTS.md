@@ -12,3 +12,4 @@
 - Keep store claims in `src/config/site.ts` so page, cart and metadata remain consistent.
 - Keep announcement timing in a browser-only component with pure timing helpers; preview countdowns must be labeled and must not imply an enforced offer expiration.
 - Share gift icons and rating rendering through the store primitives to keep repeated visuals consistent.
+- Render decorative paw stamps in a body portal with document coordinates so ancestor layouts and viewport scrolling cannot move their anchor.

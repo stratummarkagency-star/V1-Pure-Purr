@@ -83,10 +83,6 @@ export function Hero() {
           </button>
         ))}
       </div>
-      <div className="absolute -left-2 top-6 rounded-2xl border bg-background/95 p-3 shadow-soft backdrop-blur md:-left-6">
-        <p className="text-xs font-bold"><span className="rounded-full bg-accent px-2 py-0.5">6 FREE</span> gifts included</p>
-        <div className="mt-2 flex gap-1">{bundle.items.filter((it) => it.free).map((it) => <span key={it.id} title={it.name} aria-label={it.name} className="grid size-8 place-items-center rounded-full border-2 border-background bg-ink text-mint text-[9px] font-bold">{it.mystery ? "?" : <GiftIcon id={it.id} className="size-4" />}</span>)}</div>
-      </div>
     </div>
   );
   return (

@@ -128,7 +128,9 @@
 .announcement-clock { font-variant-numeric: tabular-nums; min-width: 158px; text-align: center; }
 .pixel-cat { animation: cat-bounce 360ms steps(2, end) infinite; }
 .cat-leg-front { animation: cat-stride 360ms steps(2, end) infinite; }
+.cat-leg-front-b { animation: cat-stride 360ms steps(2, end) infinite; animation-delay: 180ms; }
 .cat-leg-back { animation: cat-stride 360ms steps(2, end) infinite reverse; }
+.cat-leg-back-b { animation: cat-stride 360ms steps(2, end) infinite reverse; animation-delay: 180ms; }
 @keyframes announcement-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 @keyframes cat-bounce { from { transform: translateY(0); } to { transform: translateY(-2px); } }
 @keyframes cat-stride { from { transform: translateX(-2px); } to { transform: translateX(2px); } }
@@ -138,7 +140,7 @@
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .animate-marquee, .animate-flash { animation: none !important; opacity: 1; }
   .btn-cta:hover { transform: none; }
-  .announcement-track, .pixel-cat, .cat-leg-front, .cat-leg-back { animation: none; }
+  .announcement-track, .pixel-cat, .cat-leg-front, .cat-leg-front-b, .cat-leg-back, .cat-leg-back-b { animation: none; }
   .announcement-track { width: 100%; }
   .announcement-message { flex-wrap: wrap; justify-content: center; white-space: normal; width: 100%; gap: 8px; }
   .announcement-message[aria-hidden="true"] { display: none; }

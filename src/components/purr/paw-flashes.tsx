@@ -8,12 +8,19 @@ const MIN_GAP_MS = 450;
 
 function PawPrint({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <ellipse cx="12" cy="15.5" rx="4.6" ry="3.9" />
-      <ellipse cx="5.6" cy="10.4" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.4)" />
-      <ellipse cx="9.6" cy="7.2" rx="1.9" ry="2.6" transform="rotate(-6 9.6 7.2)" />
-      <ellipse cx="14.4" cy="7.2" rx="1.9" ry="2.6" transform="rotate(6 14.4 7.2)" />
-      <ellipse cx="18.4" cy="10.4" rx="1.9" ry="2.5" transform="rotate(18 18.4 10.4)" />
+    <svg viewBox="0 0 554 554" fill="currentColor" className={className} aria-hidden="true">
+      <path
+        d="M274 72C215 13 133 52 122 142C70 140 30 183 30 238C28 287 54 326 101 339C64 418 104 483 169 495C231 507 320 507 379 495C446 481 483 417 448 339C495 324 522 285 519 238C517 183 477 140 427 142C419 52 334 13 274 72Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        strokeLinejoin="round"
+      />
+      <ellipse cx="129" cy="244" rx="45.5" ry="55.5" />
+      <ellipse cx="218" cy="159" rx="48" ry="61" />
+      <ellipse cx="331" cy="159" rx="48" ry="61" />
+      <ellipse cx="419.5" cy="244" rx="45.5" ry="55.5" />
+      <path d="M274 238C227 238 213 277 177 312C149 337 129 367 142 403C155 440 195 452 230 438C248 431 260 425 274 425C291 425 307 434 326 440C361 453 397 444 407 409C420 373 397 339 373 317C337 284 323 238 274 238Z" />
     </svg>
   );
 }

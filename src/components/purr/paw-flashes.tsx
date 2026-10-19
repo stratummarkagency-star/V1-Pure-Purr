@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 type Paw = { id: number; x: number; y: number; rotate: number; scale: number };
 
@@ -27,7 +28,8 @@ function PawPrint({ className = "" }: { className?: string }) {
 
 /**
  * Decorative paw prints that flash where the visitor touches the screen
- * and while they scroll. Each paw lives 3s and dissolves with a blur.
+ * and while they scroll, anchored to the document rather than the viewport.
+ * Each paw lives 3s and dissolves with a blur.
  * Purely visual: no pointer events, no layout impact, reduced-motion safe.
  */
 export function PawFlashes() {
@@ -45,8 +47,8 @@ export function PawFlashes() {
       lastSpawn.current = now;
       const paw: Paw = {
         id: nextId.current++,
-        x: clientX,
-        y: clientY,
+        x: clientX + window.scrollX,
+        y: clientY + window.scrollY,
         rotate: Math.random() * 50 - 25,
         scale: 0.85 + Math.random() * 0.4,
       };
@@ -80,8 +82,8 @@ export function PawFlashes() {
   }, []);
 
   if (paws.length === 0) return null;
-  return (
-    <div className="pointer-events-none fixed inset-0 z-30 overflow-hidden" aria-hidden="true">
+  return createPortal(
+    <div className="pointer-events-none absolute inset-x-0 top-0 z-30" aria-hidden="true">
       {paws.map((p) => (
         <span
           key={p.id}
@@ -95,6 +97,7 @@ export function PawFlashes() {
           <PawPrint className="size-12 md:size-14" />
         </span>
       ))}
-    </div>
+    </div>,
+    document.body,
   );
 }

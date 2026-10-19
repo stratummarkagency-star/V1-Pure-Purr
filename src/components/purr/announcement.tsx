@@ -33,7 +33,7 @@ export function Announcement() {
   const message = <>
     <RunningCat />
     <span className="font-bold">6 FREE GIFTS</span>
-    <span className="announcement-clock rounded border border-mint/40 px-2 py-0.5 font-bold text-mint">{seconds > 0 ? `Timer preview · ${formatCountdown(seconds)}` : "Timer preview ended"}</span>
+    <span translate="no" className="announcement-clock rounded border border-mint/40 px-2 py-0.5 font-bold text-mint">{seconds > 0 ? `Timer preview · ${formatCountdown(seconds)}` : "Timer preview ended"}</span>
     <span aria-hidden="true">·</span>
     <span>{trust.shipping.label}</span>
     <span aria-hidden="true">·</span>

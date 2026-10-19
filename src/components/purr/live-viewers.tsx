@@ -21,8 +21,8 @@ export function LiveViewers() {
       <div className="container-pp flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center">
         <p className="flex items-center gap-3 text-2xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
           <span className="relative inline-flex size-4 shrink-0 sm:size-5">
-            <span className="absolute inset-0 animate-ping rounded-full bg-success opacity-60" />
-            <span className="relative size-full animate-pulse rounded-full bg-success shadow-[0_0_14px_var(--success)]" />
+            <span className="absolute inset-0 animate-ping rounded-full bg-mint opacity-70" />
+            <span className="relative size-full animate-pulse rounded-full bg-mint shadow-[0_0_14px_var(--mint)]" />
           </span>
           <span><span className="tabular-nums">{viewers}</span> people are viewing this</span>
         </p>

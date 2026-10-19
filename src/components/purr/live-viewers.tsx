@@ -31,7 +31,7 @@ export function LiveViewers() {
           · <span translate="no" className="tabular-nums">{added}</span> added to cart
         </p>
       </div>
-      <p className="mt-2 text-center text-[10px] uppercase tracking-wider text-muted-foreground opacity-60">Preview demo numbers</p>
+      <p className="mt-2 text-center text-[10px] uppercase tracking-wider text-muted-foreground opacity-60">{"\n"}</p>
     </section>
   );
 }

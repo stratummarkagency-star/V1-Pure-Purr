@@ -55,7 +55,7 @@ export function CTA({ label, className = "", full = false }: { label?: string; c
 }
 
 export function Stars({ className = "size-4" }: { className?: string }) {
-  return <span className="inline-flex gap-0.5" aria-label="4.9 out of 5 stars">{Array.from({ length: 5 }).map((_, i) => i < 4 ? <Star key={i} className={`${className} fill-current`} strokeWidth={1.5} aria-hidden /> : <span key={i} className={`relative inline-block shrink-0 ${className}`} aria-hidden="true"><Star className="absolute inset-0 size-full" strokeWidth={1.5} /><Star className="star-fill-ninety absolute inset-0 size-full fill-current" strokeWidth={1.5} /></span>)}</span>;
+  return <span className="inline-flex gap-0.5 text-mint" aria-label="4.9 out of 5 stars">{Array.from({ length: 5 }).map((_, i) => i < 4 ? <Star key={i} className={`${className} fill-current`} strokeWidth={1.5} aria-hidden /> : <span key={i} className={`relative inline-block shrink-0 ${className}`} aria-hidden="true"><Star className="absolute inset-0 size-full" strokeWidth={1.5} /><Star className="star-fill-eighty absolute inset-0 size-full fill-current" strokeWidth={1.5} /></span>)}</span>;
 }
 
 export function GiftIcon({ id, className = "size-5" }: { id: string; className?: string }) {

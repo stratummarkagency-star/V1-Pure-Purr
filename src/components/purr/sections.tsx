@@ -327,7 +327,7 @@ export function Reviews() {
             <Reveal className="md:col-span-4">
               <p className="text-7xl font-bold">{t.rating}</p>
               <Stars className="size-5" />
-              <p className="mt-2 text-sm text-muted-foreground">{t.reviews} verified buyers on Trustpilot</p>
+              <p className="mt-2 text-sm text-muted-foreground">&quot;We don&apos;t say it, our family does.&quot;&nbsp;</p>
               <div className="mt-6 space-y-2">
                 {t.distribution.map((p, i) => (
                   <div key={i} className="flex items-center gap-3 text-sm"><span className="w-3">{5 - i}</span><div className="h-2 flex-1 overflow-hidden rounded-full bg-ink/10"><div className="h-full rounded-full bg-ink" style={{ width: `${p}%` }} /></div><span className="w-9 text-right text-muted-foreground">{p}%</span></div>

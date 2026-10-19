@@ -3,6 +3,7 @@ import { Check, X, Play, Volume2, ChevronDown, Award, Sparkles, ShieldCheck, Vol
 import { bundle, totalValue, savings, savingsPct, perDay, installmentAmount, giftsValue, trust, reviews, ugcVideos, brand, abTest } from "@/config/site";
 import { CTA, Reveal, RiskStrip, PaymentIcons, Stars, Replace, MysteryBox, GiftIcon, useInView, useCountUp, useVariant } from "./primitives";
 import { Announcement } from "./announcement";
+import { LiveViewers } from "./live-viewers";
 import { useCart } from "./cart";
 import productImg from "@/assets/product.jpg";
 import lifestyleImg from "@/assets/lifestyle.jpg";
@@ -119,19 +120,7 @@ export function Hero() {
 
 /* S2 */
 export function ProofStrip() {
-  const items = [
-    ...(trust.awards.show ? trust.awards.items.map((a) => a.name) : []),
-    ...(trust.press.show ? trust.press.items.map((p) => p.name) : []),
-  ];
-  if (!items.length) return null;
-  const row = items.map((n) => <span key={n} className="flex shrink-0 items-center gap-2 px-6 text-sm font-bold opacity-60"><Award className="size-4" strokeWidth={1.5} />{n}</span>);
-  return (
-    <section className="border-y bg-mint-soft py-6" aria-label="Awards and press">
-      <p className="eyebrow-pp mb-3 text-center text-muted-foreground">Awards & as featured in <Replace /></p>
-      <div className="overflow-hidden md:hidden"><div className="animate-marquee flex w-max">{row}{row}</div></div>
-      <div className="container-pp hidden flex-wrap justify-center md:flex">{row}</div>
-    </section>
-  );
+  return <LiveViewers />;
 }
 
 /* S3 */

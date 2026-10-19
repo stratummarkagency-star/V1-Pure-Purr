@@ -481,13 +481,13 @@ export function Footer() {
       <div className="container-pp flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div><p className="text-xl font-bold">Pure <Em>Purr</Em></p><p className="mt-1 text-sm text-muted-foreground">{brand.tagline}</p></div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground" aria-label="Policies">
-          {["Shipping policy", "Returns", "Warranty", "Privacy", "Terms"].map((l) => <a key={l} href="#" className="hover:text-foreground">{l} <span className="sr-only">[REPLACE link]</span></a>)}
+          {["Shipping policy", "Returns", "Warranty", "Privacy", "Terms"].map((l) => <a key={l} href="#" className="hover:text-foreground">{l}{l === "Terms" ? <br /> : " "}<span className="sr-only">[REPLACE link]</span></a>)}
           <a href={`mailto:${brand.email}`} className="hover:text-foreground">Contact: {brand.email}</a>
         </nav>
       </div>
       <div className="container-pp mt-8 flex flex-col gap-4 border-t pt-6 md:flex-row md:items-center md:justify-between">
         <PaymentIcons className="text-muted-foreground" />
-        <p className="text-sm text-muted-foreground">© {brand.year} Pure Purr</p>
+        <p className="text-sm text-muted-foreground">© Copyright {brand.year},{"\u00a0"}Pure Purr</p>
       </div>
     </footer>
   );

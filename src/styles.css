@@ -140,7 +140,7 @@
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .animate-marquee, .animate-flash { animation: none !important; opacity: 1; }
   .btn-cta:hover { transform: none; }
-  .announcement-track, .pixel-cat, .cat-leg-front, .cat-leg-back { animation: none; }
+  .announcement-track, .pixel-cat, .cat-leg-front, .cat-leg-front-b, .cat-leg-back, .cat-leg-back-b { animation: none; }
   .announcement-track { width: 100%; }
   .announcement-message { flex-wrap: wrap; justify-content: center; white-space: normal; width: 100%; gap: 8px; }
   .announcement-message[aria-hidden="true"] { display: none; }

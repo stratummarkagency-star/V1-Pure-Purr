@@ -65,7 +65,7 @@ export const trust = {
   warranty: { show: true, years: 3, text: "Repair or replacement" },
   trial: { show: true, days: 30 },
   protection: { show: true, text: "Refund or replacement if it arrives damaged or never arrives" },
-  shipping: { show: true, free: true, minDays: 3, maxDays: 5, worldwide: true, eta: "3–5 days worldwide", label: "Fast free shipping (3–5 days worldwide)" },
+  shipping: { show: true, free: true, minDays: 3, maxDays: 7, worldwide: true, eta: "3–7 days worldwide", label: "Fast free shipping (3–7 days worldwide)" },
   support: { show: false, text: "Real humans. Replies within 24h." },
   community: { show: true, count: 9000, label: "happy cat parents" },
   heritage: { years: 10, text: "Over 10 years perfecting products for your beloved felines." },

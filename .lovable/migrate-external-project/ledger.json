@@ -1,0 +1,1 @@
+[{"capability":"code","source":"archive","outcome":"migrated","status":"verified","next_action":null},{"capability":"database/auth","source":"none detected","outcome":"n/a","status":"verified","next_action":null},{"capability":"checkout","source":"simulated in code","outcome":"preserved as demo","status":"verified","next_action":"connect real payments if wanted"}]

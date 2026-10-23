@@ -8,6 +8,11 @@ import { useCart } from "./cart";
 import productImg from "@/assets/product.jpg";
 import lifestyleImg from "@/assets/lifestyle.jpg";
 import finalImg from "@/assets/final.jpg";
+import forbesLogo from "@/assets/brand-forbes-predict.jpg.asset.json";
+import animalPlanetLogo from "@/assets/brand-logotipo-minimalista-de-animal-planet.png.asset.json";
+import dodoLogo from "@/assets/brand-logotipo-minimalista-de-dodo-en-blanco-y-negro.png.asset.json";
+import modernCatLogo from "@/assets/brand-logotipo-minimalista-moderncat.png.asset.json";
+import catsComLogo from "@/assets/brand-logotipo-cats.com-en-blanco-sobre-negro.png.asset.json";
 
 function Em({ children }: { children: string }) {
   return <span className="em-pp">{children}</span>;
@@ -372,26 +377,41 @@ export function Reviews() {
 function Counter({ to, suffix = "", decimals = 0, label }: { to: number; suffix?: string; decimals?: number; label: string }) {
   const [ref, seen] = useInView<HTMLDivElement>(0.4);
   const v = useCountUp(to * 10 ** decimals, seen);
-  return <div ref={ref} className="text-center"><p className="text-4xl font-bold md:text-5xl">{(v / 10 ** decimals).toFixed(decimals)}{suffix}</p><p className="mt-1 text-sm text-muted-foreground">{label}</p></div>;
+  return <div ref={ref} className="text-center"><p className="text-4xl font-bold md:text-5xl">{(v / 10 ** decimals).toFixed(decimals)}{suffix}</p><p className="mt-1 text-sm text-paper/70">{label}</p></div>;
 }
+const brandLogos = [
+  { name: "Forbes", src: forbesLogo.url },
+  { name: "Animal Planet", src: animalPlanetLogo.url },
+  { name: "The Dodo", src: dodoLogo.url },
+  { name: "Modern Cat", src: modernCatLogo.url },
+  { name: "Cats.com", src: catsComLogo.url },
+];
 export function Recognition() {
   return (
-    <section className="section-pp container-pp">
+    <section className="on-dark section-pp bg-ink text-paper">
+      <div className="container-pp">
       <Reveal className="text-center"><h2 className="h2-pp">Recognized for <Em>innovation</Em> & safety</h2></Reveal>
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
-        {trust.awards.show && trust.awards.items.map((a) => <div key={a.name} className="rounded-3xl border p-6"><Award className="size-6" strokeWidth={1.5} /><p className="mt-3 font-bold">{a.name}</p><p className="text-sm text-muted-foreground">{a.detail}</p></div>)}
-        {trust.certification.show && <div className="rounded-3xl border p-6"><ShieldCheck className="size-6" strokeWidth={1.5} /><p className="mt-3 font-bold">{trust.certification.name}</p><p className="text-sm text-muted-foreground">{trust.certification.detail}</p></div>}
-        {trust.press.show && trust.press.items.map((p) => <div key={p.name} className="rounded-3xl border p-6"><Eye className="size-6" strokeWidth={1.5} /><p className="mt-3 font-bold">Featured in {p.name}</p><p className="text-sm text-muted-foreground">Article link {p.url}</p></div>)}
       </div>
+      <div className="brand-marquee mt-12 overflow-hidden" aria-label="Brands that feature us: Forbes, Animal Planet, The Dodo, Modern Cat, Cats.com">
+        <div className="brand-track flex w-max items-center">
+          {[0, 1].map((k) => (
+            <div key={k} className="flex shrink-0 items-center gap-16 px-8 md:gap-24 md:px-12" aria-hidden={k === 1 || undefined}>
+              {brandLogos.map((b) => <img key={b.name} src={b.src} alt={k === 0 ? b.name : ""} loading="lazy" className="brand-logo h-14 w-auto object-contain md:h-20" />)}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="container-pp">
       <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
         {trust.community.show && <Counter to={trust.community.count} suffix="+" label={trust.community.label} />}
         {trust.trustpilot.show && <Counter to={trust.trustpilot.rating} decimals={1} suffix="/5" label="Trustpilot rating" />}
         {trust.warranty.show && <Counter to={trust.warranty.years} suffix="-year" label="warranty" />}
         {trust.trial.show && <Counter to={trust.trial.days} suffix="-day" label="risk-free trial" />}
       </div>
-      <div className="mt-14 grid gap-8 border-t pt-10 md:grid-cols-2">
-        <div className="flex items-start gap-4"><Cat className="size-8 shrink-0" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.heritage.years}+ years</p><p className="mt-2 text-muted-foreground">{trust.heritage.text}</p></div></div>
-        <div className="flex items-start gap-4"><Gift className="size-8 shrink-0" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.giving.percent}% for homeless cats</p><p className="mt-2 text-muted-foreground">{trust.giving.text}</p></div></div>
+      <div className="mt-14 grid gap-8 border-t border-paper/15 pt-10 md:grid-cols-2">
+        <div className="flex items-start gap-4"><Cat className="size-8 shrink-0 text-mint" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.heritage.years}+ years</p><p className="mt-2 text-paper/70">{trust.heritage.text}</p></div></div>
+        <div className="flex items-start gap-4"><Gift className="size-8 shrink-0 text-mint" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.giving.percent}% for homeless cats</p><p className="mt-2 text-paper/70">{trust.giving.text}</p></div></div>
+      </div>
       </div>
     </section>
   );

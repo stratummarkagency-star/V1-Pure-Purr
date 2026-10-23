@@ -11,11 +11,11 @@ describe("requested store rules", () => {
     expect(remainingSeconds(1080000, 1000)).toBe(1079);
     expect(remainingSeconds(1080000, 1081000)).toBe(0);
   });
-  it("has worldwide free shipping in 3 to 5 days", () => {
+  it("has worldwide free shipping in 3 to 7 days", () => {
     expect(trust.shipping.free).toBe(true);
     expect(trust.shipping.worldwide).toBe(true);
     expect(trust.shipping.minDays).toBe(3);
-    expect(trust.shipping.maxDays).toBe(5);
+    expect(trust.shipping.maxDays).toBe(7);
   });
   it("has 9000 happy cat parents", () => expect(trust.community.count).toBe(9000));
   it("has over 10 years of product history", () => expect(trust.heritage.years).toBe(10));

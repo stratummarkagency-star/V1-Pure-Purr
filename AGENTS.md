@@ -13,3 +13,4 @@
 - Keep announcement timing in a browser-only component with pure timing helpers; preview countdowns must be labeled and must not imply an enforced offer expiration.
 - Share gift icons and rating rendering through the store primitives to keep repeated visuals consistent.
 - Render decorative paw stamps in a body portal with document coordinates so ancestor layouts and viewport scrolling cannot move their anchor.
+- Keep the press/sponsor marquee and the trust-numbers/heritage/giving block as separate sections so either can be restyled or reordered on its own.

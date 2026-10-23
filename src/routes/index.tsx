@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { CartProvider } from "@/components/purr/cart";
 import { PawFlashes } from "@/components/purr/paw-flashes";
-import { TopBar, Header, Hero, ProofStrip, Problem, HowItWorks, Benefits, Comparison, Offer, Guarantees, Reviews, Recognition, InTheBox, FAQ, FinalCTA, Footer, StickyMobile } from "@/components/purr/sections";
+import { TopBar, Header, Hero, ProofStrip, Problem, HowItWorks, Benefits, Comparison, Offer, Guarantees, Reviews, Recognition, TrustNumbers, InTheBox, FAQ, FinalCTA, Footer, StickyMobile } from "@/components/purr/sections";
 import { bundle, totalValue } from "@/config/site";
 import { track } from "@/lib/track";
 
@@ -62,6 +62,7 @@ function Index() {
         <Guarantees />
         <Reviews />
         <Recognition />
+        <TrustNumbers />
         <InTheBox />
         <FAQ />
         <FinalCTA />

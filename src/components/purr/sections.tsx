@@ -386,11 +386,12 @@ const brandLogos = [
   { name: "Modern Cat", src: modernCatLogo.url },
   { name: "Cats.com", src: catsComLogo.url },
 ];
+/* S10a — press/sponsor marquee only */
 export function Recognition() {
   return (
-    <section className="on-dark section-pp bg-ink text-paper">
+    <section id="recognition" className="on-dark bg-ink text-paper pt-16 pb-7 md:pt-28 md:pb-7">
       <div className="container-pp">
-      <Reveal className="text-center"><h2 className="h2-pp">Recognized for <Em>innovation</Em> & safety</h2></Reveal>
+        <Reveal className="text-center"><h2 className="h2-pp">Recognized for <Em>innovation</Em> & safety</h2></Reveal>
       </div>
       <div className="brand-marquee mt-12 overflow-hidden" aria-label="Brands that feature us: Forbes, Animal Planet, The Dodo, Modern Cat, Cats.com">
         <div className="brand-track flex w-max items-center">
@@ -401,17 +402,25 @@ export function Recognition() {
           ))}
         </div>
       </div>
+    </section>
+  );
+}
+
+/* S10b — numbers, heritage & giving */
+export function TrustNumbers() {
+  return (
+    <section id="trust-numbers" className="on-dark bg-ink text-paper pt-7 pb-16 md:pt-7 md:pb-28">
       <div className="container-pp">
-      <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
-        {trust.community.show && <Counter to={trust.community.count} suffix="+" label={trust.community.label} />}
-        {trust.trustpilot.show && <Counter to={trust.trustpilot.rating} decimals={1} suffix="/5" label="Trustpilot rating" />}
-        {trust.warranty.show && <Counter to={trust.warranty.years} suffix="-year" label="warranty" />}
-        {trust.trial.show && <Counter to={trust.trial.days} suffix="-day" label="risk-free trial" />}
-      </div>
-      <div className="mt-14 grid gap-8 border-t border-paper/15 pt-10 md:grid-cols-2">
-        <div className="flex items-start gap-4"><Cat className="size-8 shrink-0 text-mint" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.heritage.years}+ years</p><p className="mt-2 text-paper/70">{trust.heritage.text}</p></div></div>
-        <div className="flex items-start gap-4"><Gift className="size-8 shrink-0 text-mint" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.giving.percent}% for homeless cats</p><p className="mt-2 text-paper/70">{trust.giving.text}</p></div></div>
-      </div>
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          {trust.community.show && <Counter to={trust.community.count} suffix="+" label={trust.community.label} />}
+          {trust.trustpilot.show && <Counter to={trust.trustpilot.rating} decimals={1} suffix="/5" label="Trustpilot rating" />}
+          {trust.warranty.show && <Counter to={trust.warranty.years} suffix="-year" label="warranty" />}
+          {trust.trial.show && <Counter to={trust.trial.days} suffix="-day" label="risk-free trial" />}
+        </div>
+        <div className="mt-14 grid gap-8 border-t border-paper/15 pt-10 md:grid-cols-2">
+          <div className="flex items-start gap-4"><Cat className="size-8 shrink-0 text-mint" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.heritage.years}+ years</p><p className="mt-2 text-paper/70">{trust.heritage.text}</p></div></div>
+          <div className="flex items-start gap-4"><Gift className="size-8 shrink-0 text-mint" strokeWidth={1.5} /><div><p className="text-3xl font-bold">{trust.giving.percent}% for homeless cats</p><p className="mt-2 text-paper/70">{trust.giving.text}</p></div></div>
+        </div>
       </div>
     </section>
   );

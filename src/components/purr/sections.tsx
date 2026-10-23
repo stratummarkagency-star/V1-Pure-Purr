@@ -8,6 +8,11 @@ import { useCart } from "./cart";
 import productImg from "@/assets/product.jpg";
 import lifestyleImg from "@/assets/lifestyle.jpg";
 import finalImg from "@/assets/final.jpg";
+import forbesLogo from "@/assets/brand-forbes-predict.jpg.asset.json";
+import animalPlanetLogo from "@/assets/brand-logotipo-minimalista-de-animal-planet.png.asset.json";
+import dodoLogo from "@/assets/brand-logotipo-minimalista-de-dodo-en-blanco-y-negro.png.asset.json";
+import modernCatLogo from "@/assets/brand-logotipo-minimalista-moderncat.png.asset.json";
+import catsComLogo from "@/assets/brand-logotipo-cats.com-en-blanco-sobre-negro.png.asset.json";
 
 function Em({ children }: { children: string }) {
   return <span className="em-pp">{children}</span>;
@@ -372,8 +377,15 @@ export function Reviews() {
 function Counter({ to, suffix = "", decimals = 0, label }: { to: number; suffix?: string; decimals?: number; label: string }) {
   const [ref, seen] = useInView<HTMLDivElement>(0.4);
   const v = useCountUp(to * 10 ** decimals, seen);
-  return <div ref={ref} className="text-center"><p className="text-4xl font-bold md:text-5xl">{(v / 10 ** decimals).toFixed(decimals)}{suffix}</p><p className="mt-1 text-sm text-muted-foreground">{label}</p></div>;
+  return <div ref={ref} className="text-center"><p className="text-4xl font-bold md:text-5xl">{(v / 10 ** decimals).toFixed(decimals)}{suffix}</p><p className="mt-1 text-sm text-paper/70">{label}</p></div>;
 }
+const brandLogos = [
+  { name: "Forbes", src: forbesLogo.url },
+  { name: "Animal Planet", src: animalPlanetLogo.url },
+  { name: "The Dodo", src: dodoLogo.url },
+  { name: "Modern Cat", src: modernCatLogo.url },
+  { name: "Cats.com", src: catsComLogo.url },
+];
 export function Recognition() {
   return (
     <section className="on-dark section-pp bg-ink text-paper">

@@ -36,7 +36,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/75 backdrop-blur-xl">
       <div className="container-pp flex h-16 items-center justify-between gap-4">
-        <a href="#top" className="text-xl font-bold tracking-tight">Pure <Em>Purr</Em></a>
+        <a href="#top" className="flex items-center gap-2 text-xl font-bold tracking-tight">Pure <Em>Purr</Em>{trust.awards.show && <span title={trust.awards.items[0]?.name} className="grid size-7 shrink-0 place-items-center rounded-full border"><Award className="size-3.5" strokeWidth={1.5} aria-hidden /></span>}</a>
         <nav className="hidden gap-8 text-sm font-medium md:flex" aria-label="Main">
           {links.map(([l, h]) => <a key={h} href={h} className="text-muted-foreground hover:text-foreground">{l}</a>)}
         </nav>
@@ -96,7 +96,6 @@ export function Hero() {
         {trust.trustpilot.show && (
           <div className="flex flex-wrap items-center gap-3 text-sm font-semibold">
             <Stars /> {trust.trustpilot.rating}/5 on Trustpilot
-            {trust.awards.show && <span className="flex gap-1">{trust.awards.items.map((a) => <span key={a.name} title={a.name} className="grid size-7 place-items-center rounded-full border"><Award className="size-3.5" strokeWidth={1.5} /></span>)}</span>}
           </div>
         )}
         <h1 className="h1-pp mt-5">{v.h1 === "a" ? <>Never <Em>scoop</Em> again.</> : <>Less scooping. More <Em>purring.</Em></>}</h1>

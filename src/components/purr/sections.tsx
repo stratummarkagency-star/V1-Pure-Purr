@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Check, X, Play, Volume2, ChevronDown, Award, Sparkles, ShieldCheck, Volume1, Smartphone, Cat, Wind, Clock, Frown, Eye, RotateCcw, PackageCheck, Gift, Image as ImageIcon, Video } from "lucide-react";
+import { Check, X, Play, Volume2, ChevronDown, Award, Sparkles, ShieldCheck, Volume1, Smartphone, Cat, Wind, Clock, Frown, Eye, RotateCcw, PackageCheck, Gift, Image as ImageIcon } from "lucide-react";
 import { bundle, totalValue, savings, savingsPct, perDay, installmentAmount, giftsValue, trust, reviews, ugcVideos, brand, abTest } from "@/config/site";
 import { CTA, Reveal, RiskStrip, PaymentIcons, Stars, Replace, MysteryBox, GiftIcon, useInView, useCountUp, useVariant } from "./primitives";
 import { Announcement } from "./announcement";
 import { LiveViewers } from "./live-viewers";
 import { useCart } from "./cart";
 import productImg from "@/assets/product.jpg";
-import lifestyleImg from "@/assets/lifestyle.jpg";
+import heroImg from "@/assets/pet-maison-portada.webp.asset.json";
 import finalImg from "@/assets/final.jpg";
 import forbesLogo from "@/assets/brand-forbes-predict.jpg.asset.json";
 import animalPlanetLogo from "@/assets/brand-logotipo-minimalista-de-animal-planet.png.asset.json";
@@ -49,13 +49,6 @@ export function Header() {
 /* S1 */
 export function Hero() {
   const v = useVariant();
-  const [slide, setSlide] = useState(0);
-  const slides = [
-    { type: "img", src: productImg, alt: "Pure Purr self-cleaning litter box on white with a soft mint glow" },
-    { type: "img", src: lifestyleImg, alt: "A cat stepping out of Pure Purr in a bright living room" },
-    { type: "video", src: "", alt: "8–10 second loop of a cat using Pure Purr" },
-  ] as const;
-  const cur = slides[slide] ?? slides[0];
   const price = (
     <div className="space-y-2">
       <div className="flex flex-wrap items-end gap-3">
@@ -70,24 +63,8 @@ export function Hero() {
     </div>
   );
   const gallery = (
-    <div className="relative">
-      <div className="relative aspect-square overflow-hidden rounded-3xl border bg-background shadow-soft">
-        <div className="glow-mint pointer-events-none absolute inset-x-10 bottom-0 h-1/2" aria-hidden />
-        {cur.type === "img" ? (
-          <img src={cur.src} alt={cur.alt} width={1024} height={1024} fetchPriority="high" className="relative size-full object-cover" />
-        ) : (
-          <div className="relative grid size-full place-items-center bg-mint-soft text-center">
-            <div><Video className="mx-auto size-10" strokeWidth={1.5} /><p className="mt-2 font-semibold">Loop video: cat using Pure Purr</p><Replace>REPLACE: 8–10s muted loop + poster</Replace></div>
-          </div>
-        )}
-      </div>
-      <div className="mt-3 flex gap-2">
-        {slides.map((s, i) => (
-          <button key={i} onClick={() => setSlide(i)} aria-label={`Show ${s.alt}`} className={`size-16 overflow-hidden rounded-2xl border-2 ${i === slide ? "border-ink" : "border-transparent"}`}>
-            {s.type === "img" ? <img src={s.src} alt="" width={64} height={64} loading="lazy" className="size-full object-cover" /> : <span className="grid size-full place-items-center bg-mint-soft"><Play className="size-5" strokeWidth={1.5} /></span>}
-          </button>
-        ))}
-      </div>
+    <div className="relative h-full">
+      <img src={heroImg.url} alt="A grey cat sitting beside the Pure Purr self-cleaning litter box in a bright living room" fetchPriority="high" className="size-full rounded-3xl object-cover shadow-soft" />
     </div>
   );
   return (

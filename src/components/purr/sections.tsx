@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Check, X, Play, Volume2, ChevronDown, Award, Sparkles, ShieldCheck, Volume1, Smartphone, Cat, Wind, Clock, Frown, Eye, RotateCcw, PackageCheck, Gift, Image as ImageIcon } from "lucide-react";
+import { Check, X, Play, Volume2, ChevronDown, Award, Sparkles, ShieldCheck, Volume1, Smartphone, Cat, Wind, Clock, Frown, Eye, RotateCcw, PackageCheck, Gift, Image as ImageIcon, Video } from "lucide-react";
 import { bundle, totalValue, savings, savingsPct, perDay, installmentAmount, giftsValue, trust, reviews, ugcVideos, brand, abTest } from "@/config/site";
 import { CTA, Reveal, RiskStrip, PaymentIcons, Stars, Replace, MysteryBox, GiftIcon, useInView, useCountUp, useVariant } from "./primitives";
 import { Announcement } from "./announcement";
 import { LiveViewers } from "./live-viewers";
 import { useCart } from "./cart";
 import productImg from "@/assets/product.jpg";
-import heroImg from "@/assets/pet-maison-portada-4.webp.asset.json";
+import lifestyleImg from "@/assets/lifestyle.jpg";
 import finalImg from "@/assets/final.jpg";
 import forbesLogo from "@/assets/brand-forbes-predict.jpg.asset.json";
 import animalPlanetLogo from "@/assets/brand-logotipo-minimalista-de-animal-planet.png.asset.json";
@@ -36,7 +36,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/75 backdrop-blur-xl">
       <div className="container-pp flex h-16 items-center justify-between gap-4">
-        <a href="#top" className="flex items-center gap-2 text-xl font-bold tracking-tight">Pure <Em>Purr</Em>{trust.awards.show && <span title={trust.awards.items[0]?.name} className="grid size-7 shrink-0 place-items-center rounded-full border"><Award className="size-3.5" strokeWidth={1.5} aria-hidden /></span>}</a>
+        <a href="#top" className="text-xl font-bold tracking-tight">Pure <Em>Purr</Em></a>
         <nav className="hidden gap-8 text-sm font-medium md:flex" aria-label="Main">
           {links.map(([l, h]) => <a key={h} href={h} className="text-muted-foreground hover:text-foreground">{l}</a>)}
         </nav>
@@ -48,21 +48,73 @@ export function Header() {
 
 /* S1 */
 export function Hero() {
-  return (
-    <section id="top" className="store-cover relative isolate overflow-hidden text-paper">
-      <img src={heroImg.url} alt="A grey cat sitting beside the Pure Purr self-cleaning litter box in a bright living room" fetchPriority="high" className="store-cover-image absolute inset-0 size-full object-cover" />
-      <div className="store-cover-shade absolute inset-0" aria-hidden="true" />
-      <div className="container-pp relative flex h-full flex-col items-center text-center">
-        <h1 className="store-cover-title pt-9 md:pt-12">Never <Em>scoop</Em> again.</h1>
-        <div className="mt-auto flex flex-col items-center gap-3 pb-9 md:pb-10">
-          <CTA className="store-cover-cta" />
-        {trust.trustpilot.show && (
-          <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-semibold">
-            <Stars /> {trust.trustpilot.rating}/5 on Trustpilot
+  const v = useVariant();
+  const [slide, setSlide] = useState(0);
+  const slides = [
+    { type: "img", src: productImg, alt: "Pure Purr self-cleaning litter box on white with a soft mint glow" },
+    { type: "img", src: lifestyleImg, alt: "A cat stepping out of Pure Purr in a bright living room" },
+    { type: "video", src: "", alt: "8–10 second loop of a cat using Pure Purr" },
+  ] as const;
+  const cur = slides[slide] ?? slides[0];
+  const price = (
+    <div className="space-y-2">
+      <div className="flex flex-wrap items-end gap-3">
+        <span className="text-5xl font-bold tracking-tight md:text-6xl">${bundle.price}</span>
+        <span className="pb-2 text-lg text-muted-foreground line-through">${totalValue()} value</span>
+        <span className="mb-2 rounded-full bg-accent px-3 py-1 text-sm font-bold">Save ${savings()}</span>
+      </div>
+      <p className="text-sm text-muted-foreground">
+        {bundle.installments.show && v.price === "b" ? <>or {bundle.installments.count} payments of ${installmentAmount()} · </> : null}
+        Just ${perDay()}/day over your {bundle.warrantyYears}-year warranty
+      </p>
+    </div>
+  );
+  const gallery = (
+    <div className="relative">
+      <div className="relative aspect-square overflow-hidden rounded-3xl border bg-background shadow-soft">
+        <div className="glow-mint pointer-events-none absolute inset-x-10 bottom-0 h-1/2" aria-hidden />
+        {cur.type === "img" ? (
+          <img src={cur.src} alt={cur.alt} width={1024} height={1024} fetchPriority="high" className="relative size-full object-cover" />
+        ) : (
+          <div className="relative grid size-full place-items-center bg-mint-soft text-center">
+            <div><Video className="mx-auto size-10" strokeWidth={1.5} /><p className="mt-2 font-semibold">Loop video: cat using Pure Purr</p><Replace>REPLACE: 8–10s muted loop + poster</Replace></div>
           </div>
         )}
-        </div>
       </div>
+      <div className="mt-3 flex gap-2">
+        {slides.map((s, i) => (
+          <button key={i} onClick={() => setSlide(i)} aria-label={`Show ${s.alt}`} className={`size-16 overflow-hidden rounded-2xl border-2 ${i === slide ? "border-ink" : "border-transparent"}`}>
+            {s.type === "img" ? <img src={s.src} alt="" width={64} height={64} loading="lazy" className="size-full object-cover" /> : <span className="grid size-full place-items-center bg-mint-soft"><Play className="size-5" strokeWidth={1.5} /></span>}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+  return (
+    <section id="top" className="container-pp grid gap-10 pb-16 pt-8 md:grid-cols-12 md:pt-14">
+      <div className="md:col-span-6 md:pt-6">
+        {trust.trustpilot.show && (
+          <div className="flex flex-wrap items-center gap-3 text-sm font-semibold">
+            <Stars /> {trust.trustpilot.rating}/5 on Trustpilot
+            {trust.awards.show && <span className="flex gap-1">{trust.awards.items.map((a) => <span key={a.name} title={a.name} className="grid size-7 place-items-center rounded-full border"><Award className="size-3.5" strokeWidth={1.5} /></span>)}</span>}
+          </div>
+        )}
+        <h1 className="h1-pp mt-5">{v.h1 === "a" ? <>Never <Em>scoop</Em> again.</> : <>Less scooping. More <Em>purring.</Em></>}</h1>
+        <div className="mt-6 md:hidden">{gallery}</div>
+        <p className="mt-5 max-w-xl text-muted-foreground">Pure Purr cleans itself after every visit, locks away odor and keeps your home fresh. Order today and get 6 free gifts worth ${giftsValue()}.</p>
+        <ul className="mt-6 space-y-2.5">
+          {["Self-cleaning — no daily scooping", "Sealed drawer — odor locked away", "Safety sensors — pause the cycle when your cat comes near"].map((t) => (
+            <li key={t} className="flex gap-3"><span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-accent"><Check className="size-3.5" strokeWidth={2.5} /></span>{t}</li>
+          ))}
+        </ul>
+        <div className="mt-8">{price}</div>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <CTA full className="sm:w-auto" />
+          <a href="#how" className="inline-flex min-h-12 items-center justify-center gap-1 px-4 text-sm font-semibold underline-offset-4 hover:underline">See how it works <ChevronDown className="size-4" /></a>
+        </div>
+        <RiskStrip className="mt-6 text-muted-foreground" />
+      </div>
+      <div className="hidden md:col-span-6 md:block">{gallery}</div>
     </section>
   );
 }

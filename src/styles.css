@@ -72,7 +72,6 @@
   --shadow-soft: 0 20px 60px rgba(25, 31, 28, 0.08);
   --shadow-glow: 0 10px 40px -6px color-mix(in oklab, var(--mint) 70%, transparent);
   --glow-mint: radial-gradient(closest-side, color-mix(in oklab, var(--mint) 55%, transparent), transparent);
-  --cover-shade: linear-gradient(to bottom, color-mix(in oklab, var(--ink) 50%, transparent), transparent 38%, transparent 70%, color-mix(in oklab, var(--ink) 55%, transparent));
 }
 
 @layer base {
@@ -131,19 +130,6 @@
 .paw-flash { animation: paw-dissolve 3000ms ease-out both; filter: drop-shadow(0 0 10px color-mix(in oklab, var(--mint) 65%, transparent)); }
 
 .star-fill-eighty { clip-path: inset(0 20% 0 0); }
-.store-cover { height: 340px; }
-.store-cover-image { object-position: 50% center; }
-.store-cover-shade { background: var(--cover-shade); }
-.store-cover-title { font-size: 32px; line-height: 1.1; font-weight: 700; letter-spacing: 0; max-width: 320px; }
-.store-cover .store-cover-cta { background: var(--paper); color: var(--ink); }
-.store-cover .store-cover-cta .cta-arrow { color: var(--ink); }
-@media (max-width: 767px) {
-  .store-cover-image { object-fit: cover; height: 100%; object-position: 50% center; }
-}
-@media (min-width: 768px) {
-  .store-cover { height: 620px; }
-  .store-cover-title { font-size: 64px; max-width: none; }
-}
 .announcement-track { animation: announcement-right 32s linear infinite; }
 .announcement-message { white-space: nowrap; }
 .announcement-clock { font-variant-numeric: tabular-nums; min-width: 158px; text-align: center; }

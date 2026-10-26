@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Check, X, Play, Volume2, ChevronDown, Award, Sparkles, ShieldCheck, Volume1, Smartphone, Cat, Wind, Clock, Frown, Eye, RotateCcw, PackageCheck, Gift, Image as ImageIcon, Video } from "lucide-react";
+import { Check, X, Play, Volume2, ChevronDown, Award, Sparkles, ShieldCheck, Volume1, Smartphone, Cat, Wind, Clock, Frown, Eye, RotateCcw, PackageCheck, Gift, Image as ImageIcon } from "lucide-react";
 import { bundle, totalValue, savings, savingsPct, perDay, installmentAmount, giftsValue, trust, reviews, ugcVideos, brand, abTest } from "@/config/site";
 import { CTA, Reveal, RiskStrip, PaymentIcons, Stars, Replace, MysteryBox, GiftIcon, useInView, useCountUp, useVariant } from "./primitives";
 import { Announcement } from "./announcement";
 import { LiveViewers } from "./live-viewers";
 import { useCart } from "./cart";
 import productImg from "@/assets/product.jpg";
-import lifestyleImg from "@/assets/lifestyle.jpg";
+import heroImg from "@/assets/pet-maison-portada.webp.asset.json";
 import finalImg from "@/assets/final.jpg";
 import forbesLogo from "@/assets/brand-forbes-predict.jpg.asset.json";
 import animalPlanetLogo from "@/assets/brand-logotipo-minimalista-de-animal-planet.png.asset.json";

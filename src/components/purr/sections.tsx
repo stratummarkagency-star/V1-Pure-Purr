@@ -6,7 +6,7 @@ import { Announcement } from "./announcement";
 import { LiveViewers } from "./live-viewers";
 import { useCart } from "./cart";
 import productImg from "@/assets/product.jpg";
-import heroImg from "@/assets/pet-maison-portada.webp.asset.json";
+import heroImg from "@/assets/pet-maison-portada-3.webp.asset.json";
 import finalImg from "@/assets/final.jpg";
 import forbesLogo from "@/assets/brand-forbes-predict.jpg.asset.json";
 import animalPlanetLogo from "@/assets/brand-logotipo-minimalista-de-animal-planet.png.asset.json";

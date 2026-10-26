@@ -48,49 +48,21 @@ export function Header() {
 
 /* S1 */
 export function Hero() {
-  const v = useVariant();
-  const price = (
-    <div className="space-y-2">
-      <div className="flex flex-wrap items-end gap-3">
-        <span className="text-5xl font-bold tracking-tight md:text-6xl">${bundle.price}</span>
-        <span className="pb-2 text-lg text-muted-foreground line-through">${totalValue()} value</span>
-        <span className="mb-2 rounded-full bg-accent px-3 py-1 text-sm font-bold">Save ${savings()}</span>
-      </div>
-      <p className="text-sm text-muted-foreground">
-        {bundle.installments.show && v.price === "b" ? <>or {bundle.installments.count} payments of ${installmentAmount()} · </> : null}
-        Just ${perDay()}/day over your {bundle.warrantyYears}-year warranty
-      </p>
-    </div>
-  );
-  const gallery = (
-    <div className="relative h-full">
-      <img src={heroImg.url} alt="A grey cat sitting beside the Pure Purr self-cleaning litter box in a bright living room" fetchPriority="high" className="size-full rounded-3xl object-cover shadow-soft" />
-    </div>
-  );
   return (
-    <section id="top" className="container-pp grid gap-10 pb-16 pt-8 md:grid-cols-12 md:pt-14">
-      <div className="md:col-span-6 md:pt-6">
+    <section id="top" className="store-cover relative isolate overflow-hidden text-paper">
+      <img src={heroImg.url} alt="A grey cat sitting beside the Pure Purr self-cleaning litter box in a bright living room" fetchPriority="high" className="store-cover-image absolute inset-0 size-full object-cover" />
+      <div className="store-cover-shade absolute inset-0" aria-hidden="true" />
+      <div className="container-pp relative flex h-full flex-col items-center text-center">
+        <h1 className="store-cover-title pt-9 md:pt-12">Never <Em>scoop</Em> again.</h1>
+        <div className="mt-auto flex flex-col items-center gap-3 pb-9 md:pb-10">
+          <CTA className="store-cover-cta" />
         {trust.trustpilot.show && (
-          <div className="flex flex-wrap items-center gap-3 text-sm font-semibold">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-semibold">
             <Stars /> {trust.trustpilot.rating}/5 on Trustpilot
           </div>
         )}
-        <h1 className="h1-pp mt-5">{v.h1 === "a" ? <>Never <Em>scoop</Em> again.</> : <>Less scooping. More <Em>purring.</Em></>}</h1>
-        <div className="mt-6 md:hidden">{gallery}</div>
-        <p className="mt-5 max-w-xl text-muted-foreground">Pure Purr cleans itself after every visit, locks away odor and keeps your home fresh. Order today and get 6 free gifts worth ${giftsValue()}.</p>
-        <ul className="mt-6 space-y-2.5">
-          {["Self-cleaning — no daily scooping", "Sealed drawer — odor locked away", "Safety sensors — pause the cycle when your cat comes near"].map((t) => (
-            <li key={t} className="flex gap-3"><span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-accent"><Check className="size-3.5" strokeWidth={2.5} /></span>{t}</li>
-          ))}
-        </ul>
-        <div className="mt-8">{price}</div>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <CTA full className="sm:w-auto" />
-          <a href="#how" className="inline-flex min-h-12 items-center justify-center gap-1 px-4 text-sm font-semibold underline-offset-4 hover:underline">See how it works <ChevronDown className="size-4" /></a>
         </div>
-        <RiskStrip className="mt-6 text-muted-foreground" />
       </div>
-      <div className="hidden md:col-span-6 md:block">{gallery}</div>
     </section>
   );
 }

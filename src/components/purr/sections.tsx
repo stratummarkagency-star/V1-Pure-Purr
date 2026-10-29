@@ -367,7 +367,7 @@ export function Reviews() {
         <div className="mt-4 grid grid-cols-3 gap-4 md:grid-cols-6">
           {Array.from({ length: 6 }).map((_, i) => <div key={i} className="grid aspect-square place-items-center rounded-2xl border bg-background"><ImageIcon className="size-5 text-muted-foreground" strokeWidth={1.5} /><span className="sr-only">Customer photo placeholder</span></div>)}
         </div>
-        <p className="mt-3 text-center"><Replace>REPLACE: real customer videos & photos</Replace></p>
+        <p className="mt-3 text-center"><Replace>REPLACE: real customer videos & photos.</Replace></p>
       </div>
     </section>
   );
